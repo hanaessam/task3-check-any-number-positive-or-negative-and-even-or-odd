@@ -14,21 +14,31 @@ different operators
 Use the condition to check it's positive or negative, then  
 use the condition to check if it's even or odd
 
-    void main() {
-      List<int> numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    import 'dart:io';
     
-      for (int number in numbers) {
-        switch (number % 2) {
-          // if number is divisible by 2 it's even
-          case 0:
-            print('$number is even');
-            break;
-          case 1:
-            print('$number is odd');
-            break;
-          default:
-            print('Invalid number'); // handle default case
-        }
+    void main() {
+      print('Enter an integer number:');
+      int? number = int.tryParse(stdin.readLineSync() ?? '');
+    
+      if (number == null) {
+        print('Invalid input. Please enter a valid integer.');
+        return;
+      }
+    
+      // Check if the number is positive or negative
+      if (number > 0) {
+        print('$number is positive.');
+      } else if (number < 0) {
+        print('$number is negative.');
+      } else {
+        print('$number is zero.');
+      }
+    
+      // Check if the number is even or odd
+      if (number % 2 == 0) {
+        print('$number is even.');
+      } else {
+        print('$number is odd.');
       }
     }
 
